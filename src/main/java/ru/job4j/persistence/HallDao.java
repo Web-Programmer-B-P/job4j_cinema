@@ -20,6 +20,9 @@ public class HallDao {
     private static final String MESSAGE_UPDATE_STATUS = "Ошибка при попытке проведения транзакции покупки билетов";
     private static final String MESSAGE_ROLLBACK = "Откат транзакции на начало";
     private static final String MESSAGE_FINALLY_BLOCK = "С закрытием ресурсов пошло что то не так";
+    private static final boolean FLAG_PLACE_IS_BOOKED = false;
+    private static final boolean RESET_RESERVATION_STATUS = true;
+    private static final int DEFAULT_ACCOUNT_ID = -1;
 
     private HallDao() {
 
@@ -80,8 +83,19 @@ public class HallDao {
         }
     }
 
+    public void restoreHallData() {
+        try (Connection connection = POOL_DAO_CONNECTION.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE " + TABLE + " SET status=?, account_id=?")) {
+            preparedStatement.setBoolean(1, RESET_RESERVATION_STATUS);
+            preparedStatement.setInt(2, DEFAULT_ACCOUNT_ID);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            LOG.error(MESSAGE_FIND_ALL, e);
+        }
+    }
+
     private void setDataForUpdate(PreparedStatement preparedStatement, List<Hall> listId, int accountId) throws SQLException {
-        preparedStatement.setBoolean(1, false);
+        preparedStatement.setBoolean(1, FLAG_PLACE_IS_BOOKED);
         preparedStatement.setInt(2, accountId);
         for (int index = 1; index <= listId.size(); index++) {
             preparedStatement.setInt(index + 2, listId.get(index - 1).getId());

@@ -24,4 +24,8 @@ public class HallService {
     public void paymentOperation(List<Hall> listId, Account account) {
         HALL_DAO.paymentTransaction(listId, account);
     }
+
+    public void restoreHallDefaultState() {
+        HALL_DAO.restoreHallData();
+    }
 }

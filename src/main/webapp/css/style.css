@@ -24,27 +24,23 @@
     line-height: 45px;
     font-size: 14px;
     margin: 6px 8px;
-    background-color: #fbe6c9;
     border: 1px solid #000;
     border-radius: 10px;
     text-align: center;
     color: #000;
 }
 
-#box_cinemahall .place_taken {
+.free {
     cursor: pointer;
+    background-color: #fbe6c9;
+}
+
+
+#box_cinemahall .place_taken {
     border: 1px solid #a18472;
     background: #bc6bad;
     color: #fff;
 }
-
-#box_cinemahall .free:hover {
-    background: #27b527;
-    border: 1px solid #27b527;
-    cursor: pointer;
-    color: #fff;
-}
-
 
 #box_cinemahall ul li {
     display: inline-block;

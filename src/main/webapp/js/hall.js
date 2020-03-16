@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    setTimeout(reset, 4000000);
     initHall();
 });
 
@@ -7,12 +8,26 @@ function deleteEl(elementMustDelete, arrayWhereSearchElement) {
     arrayWhereSearchElement.splice(index, 1);
 }
 
+function reset() {
+    setTimeout(reset, 4000000);
+    $.ajax({
+        url: '/reset-hall-data',
+        type: 'POST',
+        dataType: 'text',
+    }).done(function (data) {
+        console.log("Данные сброшены")
+    }).fail(function (err) {
+        console.log(err);
+    });
+}
+
 function initHall() {
+    setTimeout(initHall, 120000);
     let storageReservationSeats = [];
     $.ajax({
-        url: '/hall',
+        url: '/init-hall-data',
         type: 'POST',
-        data: {action: "getAll"},
+        data: {action: "getAllSeats"},
         dataType: 'text',
     }).done(function (data) {
         data = JSON.parse(data);
@@ -102,6 +117,7 @@ function initHall() {
     $('#close-booking').off().click(function () {
         let name = $('.booking-body #name').val();
         let phone = $('.booking-body #phone').val();
+        let lastSymbolPhone = phone[phone.length - 1];
         let switcherName = false;
         let switcherPhone = false;
         if (name !== '' && name.length >= 5) {
@@ -112,7 +128,7 @@ function initHall() {
             addErrorSpan('.name-label', 'Введите Ф.И.О')
         }
 
-        if (phone !== '' && phone.length >= 10) {
+        if (lastSymbolPhone !== '_') {
             switcherPhone = true;
             addSuccessSpan('.phone-label', 'Номер телефона:')
         } else {
@@ -160,9 +176,9 @@ function setDataToServer(storage, user) {
     let seatId = JSON.stringify(storage);
     let accountData = JSON.stringify(user);
     $.ajax({
-        url: '/hall',
+        url: '/save-hall-data',
         type: 'POST',
-        data: {action: "save", seatId: seatId, accountData: accountData},
+        data: {seatId: seatId, accountData: accountData},
         dataType: 'text',
     }).done(function () {
         $('#booking').modal('hide');
