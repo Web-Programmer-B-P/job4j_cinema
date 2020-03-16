@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.common {
+    text-align: center;
+}
+
+#box_cinemahall .heading_screen {
+    width: 700px;
+    height: 45px;
+    background: #fff url(../image/hall_image.png) no-repeat;
+    font-size: 2em;
+    color: #8a8a8a;
+    text-align: center;
+    margin: 40px auto;
+}
+
+#box_cinemahall ul li li {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    font-size: 14px;
+    margin: 6px 8px;
+    background-color: #fbe6c9;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    color: #000;
+}
+
+#box_cinemahall .place_taken {
+    cursor: pointer;
+    border: 1px solid #a18472;
+    background: #bc6bad;
+    color: #fff;
+}
+
+#box_cinemahall .free:hover {
+    background: #27b527;
+    border: 1px solid #27b527;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+#box_cinemahall ul li {
+    display: inline-block;
+    line-height: 18px;
+    font-weight: bold;
+    color: #5A5A5A;
+    margin-right: 20px;
+}
+
+#box_cinemahall ul li .hall_seats {
+    width: 670px;
+    margin: 0 3px;
+    color: #999;
+}
+
+#box_cinemahall .info {
+    padding: 20px;
+}
+
+#box_cinemahall .info li span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+#box_cinemahall .default {
+    border: 1px solid #a18472;
+    background-color: #fbe6c9;
+}
+
+#box_cinemahall .taken {
+    border: 1px solid #bc6bad;
+    background-color: #bc6bad;
+}
+
+#box_cinemahall .picke {
+    border: 1px solid #129a48;
+    background-color: #129a48;
+}
+
+#box_cinemahall .price {
+    border: 1px solid #000000;
+    background-color: #000000;
+}
+
+#box_cinemahall .item {
+    margin-right: 30px;
+}
+
+.copy {
+    font-size: 17px;
+    color: #bebfc2;
+    margin-top: 50px;
+}
+
+#box_cinemahall .active {
+    background: #27b527;
+    border: 1px solid #27b527;
+    cursor: pointer;
+    color: #fff;
+}

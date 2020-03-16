@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинотеатр</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/hall.js"></script>
+</head>
+
+<body>
+<div class='container common'>
+    <div id="box_cinemahall">
+        <p class="heading_screen">Экран</p>
+        <ul class="info">
+            <li title="Свободное место" class="item"><span class="default"></span>свободное место</li>
+            <li title="Mесто занято" class="item"><span class="taken"></span>место занято</li>
+            <li title="Ваш выбор" class="item"><span class="picke"></span>ваш выбор</li>
+            <li title="Стоимость билета" id="price" value="500" class="item"><span class="price"></span>Стоимость сеанса 500р</li>
+        </ul>
+        <button type="button" class='btn btn-success' id="pay">Перейти к оплате</button>
+    </div>
+</div>
+<div class='container booking-container'>
+    <div id="booking" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content booking-content" style="background-color: #ECE2D5">
+                <div class="modal-header booking-header" style="border-bottom: 1px solid #5CB85C;">
+                    <button type="button" class="close" data-dismiss="modal" title="Закрыть">&times;</button>
+                    <h4 class="modal-title" style="text-align: center">Оплата билетов</h4>
+                </div>
+                <div class="modal-body booking-body"></div>
+                <div class="modal-footer" style="border-top: 1px solid #5CB85C;">
+                    <button type="button" class="btn btn-success btn-block" id="close-booking">
+                        Оплатить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
